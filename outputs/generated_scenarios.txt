@@ -1,0 +1,15 @@
+Feature: User login to dashboard
+
+Scenario: Successful login with valid credentials
+  Given the user is on https://hebat.elearning.unair.ac.id/login/index.php
+  When the user fills the input field with id 'username' with value '187221005'
+  And the user fills the input field with id 'password' with value 'sugeng090104'
+  And the user clicks the button with id 'loginbtn'
+  Then the system redirects to the main dashboard page
+
+Scenario: Login attempt with invalid password
+  Given the user is on https://hebat.elearning.unair.ac.id/login/index.php
+  When the user fills the input field with id 'username' with value '187221005'
+  And the user fills the input field with id 'password' with value 'wrongpass'
+  And the user clicks the button with id 'loginbtn'
+  Then the system displays an error message indicating invalid credentials
